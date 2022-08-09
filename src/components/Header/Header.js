@@ -9,6 +9,8 @@ import MobileMenu from "../MobileMenu";
 import { QUERIES } from "../../constants";
 
 import Icon from "../Icon";
+import UnstyledButton from "../UnstyledButton";
+import VisuallyHidden from "../VisuallyHidden";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -36,11 +38,20 @@ const Header = () => {
         <Side />
 
         <MobileNav>
-          <CartIcon id="shopping-bag" size={24} />
-          <SearchIcon id="search" size={24} />
-          <HamburgerButton onClick={() => setShowMobileMenu(true)}>
-            <HamburgerIcon id="menu" size={24} />
-          </HamburgerButton>
+          <ShoppingBagButton>
+            <Icon id="shopping-bag" size={24} />
+            <VisuallyHidden>Open cart</VisuallyHidden>
+          </ShoppingBagButton>
+
+          <UnstyledButton>
+            <Icon id="search" size={24} />
+            <VisuallyHidden>Search</VisuallyHidden>
+          </UnstyledButton>
+
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <Icon id="menu" size={24} />
+            <VisuallyHidden>Open menu</VisuallyHidden>
+          </UnstyledButton>
         </MobileNav>
       </MainHeader>
 
@@ -60,6 +71,8 @@ const MainHeader = styled.div`
   border-bottom: 1px solid ${COLORS.gray[300]};
 
   @media ${QUERIES.tabletAndLow} {
+    border-top: 4px solid ${COLORS.gray[900]};
+    align-items: center;
     justify-content: space-between;
   }
 `;
@@ -76,6 +89,10 @@ const Nav = styled.nav`
 
 const Side = styled.div`
   flex: 1;
+
+  @media ${QUERIES.tabletAndLow} {
+    flex: revert;
+  }
 `;
 
 const NavLink = styled.a`
@@ -92,26 +109,19 @@ const NavLink = styled.a`
 
 const MobileNav = styled.div`
   display: none;
-  align-items: baseline;
-  gap: 30px;
 
   @media ${QUERIES.tabletAndLow} {
     display: flex;
+    gap: 32px;
   }
 
   @media ${QUERIES.phoneAndLow} {
-    gap: 13px;
+    gap: 16px;
   }
 `;
 
-const CartIcon = styled(Icon)``;
-const SearchIcon = styled(Icon)``;
-
-const HamburgerButton = styled.button`
-  border: none;
-  background: transparent;
-  cursor: pointer;
+const ShoppingBagButton = styled(UnstyledButton)`
+  transform: translateX(-2px);
 `;
-const HamburgerIcon = styled(Icon)``;
 
 export default Header;
