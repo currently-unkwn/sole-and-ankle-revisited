@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import styled from 'styled-components/macro';
-import { DialogOverlay, DialogContent } from '@reach/dialog';
+import React from "react";
+import styled from "styled-components/macro";
+import { DialogOverlay, DialogContent } from "@reach/dialog";
 
-import { QUERIES } from '../../constants';
+import { QUERIES } from "../../constants";
 
-import UnstyledButton from '../UnstyledButton';
-import Icon from '../Icon';
-import VisuallyHidden from '../VisuallyHidden';
+import UnstyledButton from "../UnstyledButton";
+import Icon from "../Icon";
+import VisuallyHidden from "../VisuallyHidden";
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   if (!isOpen) {
@@ -16,7 +16,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 
   return (
     <div>
-      <button onClick={onDismiss}>Dismiss menu</button>
+      <button onClick={onDismiss}>Dismiss</button>
       <nav>
         <a href="/sale">Sale</a>
         <a href="/new">New&nbsp;Releases</a>
