@@ -24,30 +24,31 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
           <Icon id="close" size={24} />
           <VisuallyHidden>Dismiss modal</VisuallyHidden>
         </CloseButton>
-        <MainContent>
-          <Side />
-          <Nav>
-            <NavLink href="/sale">Sale</NavLink>
-            <NavLink href="/new">New&nbsp;Releases</NavLink>
-            <NavLink href="/men">Men</NavLink>
-            <NavLink href="/women">Women</NavLink>
-            <NavLink href="/kids">Kids</NavLink>
-            <NavLink href="/collections">Collections</NavLink>
-          </Nav>
-          <Side>
-            <Footer>
-              <FooterLink href="/terms">Terms and Conditions</FooterLink>
-              <FooterLink href="/privacy">Privacy Policy</FooterLink>
-              <FooterLink href="/contact">Contact Us</FooterLink>
-            </Footer>
-          </Side>
-        </MainContent>
+
+        <Filler />
+        <Nav>
+          <NavLink href="/sale">Sale</NavLink>
+          <NavLink href="/new">New&nbsp;Releases</NavLink>
+          <NavLink href="/men">Men</NavLink>
+          <NavLink href="/women">Women</NavLink>
+          <NavLink href="/kids">Kids</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
+        </Nav>
+
+        <Footer>
+          <FooterLink href="/terms">Terms and Conditions</FooterLink>
+          <FooterLink href="/privacy">Privacy Policy</FooterLink>
+          <FooterLink href="/contact">Contact Us</FooterLink>
+        </Footer>
       </Content>
     </Overlay>
   );
 };
 
 const Overlay = styled(DialogOverlay)`
+  display: flex;
+  justify-content: flex-end;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -57,13 +58,10 @@ const Overlay = styled(DialogOverlay)`
 `;
 
 const Content = styled(DialogContent)`
-  position: absolute;
-  top: 0;
-  right: 0;
   background: ${COLORS.white};
-  width: 80%;
+  width: 300px;
   height: 100%;
-
+  padding: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,33 +69,22 @@ const Content = styled(DialogContent)`
 
 const CloseButton = styled(UnstyledButton)`
   position: absolute;
-  top: 32px;
-  right: 32px;
+  top: 16px;
+  right: 0;
+  padding: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const MainContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding-left: 32px;
-  padding-bottom: 32px;
-`;
-
-const Side = styled.div`
+const Filler = styled.div`
   flex: 1;
-
-  &:last-of-type {
-    display: flex;
-  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 `;
 
 const NavLink = styled.a`
@@ -113,11 +100,12 @@ const NavLink = styled.a`
 `;
 
 const Footer = styled.footer`
+  flex: 1;
+
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 10px;
-
-  margin-top: auto;
 `;
 
 const FooterLink = styled.a`
