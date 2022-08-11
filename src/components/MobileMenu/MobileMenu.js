@@ -9,7 +9,6 @@ import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon";
 import VisuallyHidden from "../VisuallyHidden";
 
-import { COLORS } from "../../constants";
 import { WEIGHTS } from "../../constants";
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
@@ -54,11 +53,11 @@ const Overlay = styled(DialogOverlay)`
   left: 0;
   right: 0;
   bottom: 0;
-  background: hsla(220, 5%, 40%, 0.8);
+  background: var(--color-backdrop);
 `;
 
 const Content = styled(DialogContent)`
-  background: ${COLORS.white};
+  background: var(--color-white);
   width: 300px;
   height: 100%;
   padding: 32px;
@@ -91,11 +90,11 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
@@ -113,7 +112,7 @@ const FooterLink = styled.a`
   font-weight: ${WEIGHTS.normal};
   text-decoration: none;
 
-  color: ${COLORS.gray[500]};
+  color: var(--color-gray-500);
 `;
 
 export default MobileMenu;
